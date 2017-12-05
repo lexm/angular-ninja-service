@@ -7,18 +7,15 @@ import { StorageService } from './storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // gold = 0;
+  gold = 0;
   title = 'Ninja Gold!';
   bldgs = [];
-  getGold() {
-    // return _storage.getGold();
-  };
+
   constructor(_storage:StorageService) {
-    // this.gold = _storage.getGold();
     this.bldgs = _storage.getBldgs();
-    this.getGold = _storage.getGold;
   }
-  ngOnInit() {
-    
+
+  addGold(change) {
+    this.gold += change;
   }
 }

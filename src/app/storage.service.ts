@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class StorageService {
-  gold : number = 0;
   record = [];
   bldgs = [
     {
@@ -28,11 +27,7 @@ export class StorageService {
   ];
 
   constructor() { }
-  ngOnInit() {
-  }
-  getGold(): number {
-    return this.gold;
-  }
+
   getRecord() {
     return this.record;
   }
@@ -45,10 +40,9 @@ export class StorageService {
     return this.bldgs[idx];
   } 
   enterBldg(idx) {
-    let bldgs = this.bldgs;
-    let bldg = bldgs[idx];
+    let bldg = this.bldgs[idx];
     let change = Math.floor((Math.random() * (bldg.max - bldg.min))) + bldg.min;
-    this.gold += change;
     this.record.push({ "change": change, "choice": bldg.name});
+    return change;
   }
 }

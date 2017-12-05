@@ -1,12 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Gold Count: {{ getGold() }}
+    Gold Count: {{ gold }}
   </h1>
 </div>
 <div class="container row">
   <div class="col-sm-3" *ngFor="let bldg of bldgs; let i = index">
-    <app-building [myBldg]="bldg" [idx]="i"></app-building>
+    <app-building [myBldg]="bldg" [idx]="i" (newGold)="addGold($event)"></app-building>
   </div>
 </div>
 <app-log></app-log>

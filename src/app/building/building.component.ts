@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { StorageService } from '../storage.service';
 
 @Component({
@@ -9,15 +9,14 @@ import { StorageService } from '../storage.service';
 export class BuildingComponent implements OnInit {
   @Input() myBldg;
   @Input() idx;
+  @Output() newGold = new EventEmitter();
   constructor(private _storage: StorageService) { }
   getBldg(idx) {}
   enterBldg(idx) {
-    // console.log(this._storage.getBldg(idx));
-    this._storage.enterBldg(idx);
+    let change = this._storage.enterBldg(idx);
+    this.newGold.emit(change);
   }
   ngOnInit() {
-    // this.enterBldg = this._storage.enterBldg;
     this.getBldg = this._storage.getBldg;
   }
-
 }
