@@ -1,0 +1,8 @@
+<div>
+  <h2>
+    {{ myBldg.name }}
+  </h2>
+  <h4 *ngIf="myBldg.min >= 0">Earns {{ myBldg.min }} - {{ myBldg.max }} Gold</h4>
+  <h4 *ngIf="myBldg.min < 0">Earn up to or Lose up to {{ myBldg.max }} Gold</h4>
+  <button (click)="enterBldg(idx)">{{ myBldg.name }}!</button>
+</div>

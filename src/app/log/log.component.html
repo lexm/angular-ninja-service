@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let record of records">
+    <h4 *ngIf="record.change >= 0" class="green">
+      You've earned {{ record.change }} gold at the {{ record.choice }}
+    </h4>
+    <h4 *ngIf="record.change < 1" class="red">
+      You've lost {{ -1 * record.change }} gold at the {{ record.choice }}
+    </h4>
+  </li>
+</ul>
